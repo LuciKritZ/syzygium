@@ -1,0 +1,19 @@
+node:
+  version: '22.12.0'
+  packageManager: 'pnpm'
+  pnpm:
+    version: '10.0.0'
+
+unstable_go:
+  version: '1.24.0'
+  workspaces: true
+
+python:
+  version: '3.12.0'
+  pip:
+    installArgs: ['--require-hashes']
+
+typescript:
+  createMissingConfig: true
+  syncProjectReferences: true
+  routeOutDirToCache: true

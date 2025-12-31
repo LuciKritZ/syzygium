@@ -1,0 +1,22 @@
+# Node
+node_modules
+dist
+.cache
+.turbo
+
+# Go
+vendor/
+bin/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv
+venv/
+
+# Moon
+.moon/cache
+.moon/docker
+
+# OS
+.DS_Store

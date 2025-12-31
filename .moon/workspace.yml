@@ -1,0 +1,11 @@
+projects:
+  - 'apps/*'
+  - 'libs/*'
+  - 'libs/protos'
+
+# Generate a telemetry UUID for the workspace
+telemetry: false
+
+vcs:
+  manager: 'git'
+  defaultBranch: 'main'

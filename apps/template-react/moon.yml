@@ -1,0 +1,14 @@
+language: 'typescript'
+
+type: application
+
+tasks:
+  dev:
+    command: 'pnpm run dev'
+    platform: 'system'
+    local: true
+
+  build:
+    command: 'pnpm run build'
+    outputs:
+      - 'dist'

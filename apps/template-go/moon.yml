@@ -1,0 +1,14 @@
+language: 'go'
+
+tasks:
+  build:
+    command: 'go build -o bin/server main.go'
+    inputs:
+      - '**/*.go'
+      - 'go.mod'
+    outputs:
+      - 'bin/server'
+
+  serve:
+    command: 'go run main.go'
+    platform: 'system'

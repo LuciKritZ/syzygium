@@ -1,17 +1,20 @@
 {
-  "name": "protos",
+  "name": "@syzygium/protos",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "generate": "buf generate"
   },
+  "sideEffects": false,
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
     "@bufbuild/buf": "^1.62.1",
-    "@bufbuild/protoc-gen-es": "^2.10.2",
-    "@connectrpc/protoc-gen-connect-es": "^1.7.0"
+    "@bufbuild/protoc-gen-es": "^2.10.2"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.10.2"
   }
 }

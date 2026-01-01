@@ -4,6 +4,8 @@ dist
 .cache
 .turbo
 
+.bin
+
 # Go
 vendor/
 bin/
@@ -15,8 +17,8 @@ __pycache__/
 venv/
 
 # Moon
-.moon/cache
-.moon/docker
+.moon/cache/
+.moon/docker/
 
 # OS
 .DS_Store

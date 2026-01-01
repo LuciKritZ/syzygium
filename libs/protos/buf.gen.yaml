@@ -1,5 +1,5 @@
 version: v2
-clean: true
+clean: false
 plugins:
   # Go
   - local: protoc-gen-go

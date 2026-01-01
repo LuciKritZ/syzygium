@@ -13,6 +13,11 @@ tasks:
     options:
       shell: true
 
+  clean:
+    command: 'rm -rf gen'
+    options:
+      shell: true
+
   generate:
     command: "export PATH=$(pwd)/.bin:$PATH && pnpm run generate"
     deps:

@@ -1,0 +1,33 @@
+language: "javascript"
+
+tasks:
+  install-tools:
+    command: "export GOBIN=$(pwd)/.bin && go install google.golang.org/protobuf/cmd/protoc-gen-go connectrpc.com/connect/cmd/protoc-gen-connect-go"
+    inputs:
+      - "go.mod"
+      - "go.sum"
+      - "tools.go"
+    outputs:
+      - ".bin/protoc-gen-go"
+      - ".bin/protoc-gen-connect-go"
+    options:
+      shell: true
+
+  clean:
+    command: 'rm -rf gen'
+    options:
+      shell: true
+
+  generate:
+    command: "export PATH=$(pwd)/.bin:$PATH && pnpm run generate"
+    deps:
+      - "install-tools" # Ensure tools exist before generating
+    inputs:
+      - "**/*.proto"
+      - "buf.gen.yaml"
+      - "buf.yaml"
+    outputs:
+      - "gen"
+    options:
+      cache: true
+      shell: true

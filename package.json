@@ -6,6 +6,14 @@
     "node": "22.12.0",
     "pnpm": ">=10.0.0"
   },
+  "scripts": {
+    "gen:protos": "./tools/gen-protos"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@bufbuild/buf"
+    ]
+  },
   "devDependencies": {
     "typescript": "^5.7.0"
   }

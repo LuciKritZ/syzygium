@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package infrastructure.v1;
+
+option go_package = "github.com/LuciKritZ/syzygium/libs/protos/gen/go/infrastructure/v1";
+
+message PingRequest {
+  string message = 1;
+}
+
+message PingResponse {
+  string message = 1;
+  string server_time = 2;
+}
+
+service PingService {
+  rpc Ping(PingRequest) returns (PingResponse);
+}

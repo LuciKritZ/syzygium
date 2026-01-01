@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Usage:
+#   ./tools/gen-protos                    -> Generates EVERYTHING
+#   ./tools/gen-protos infrastructure/v1  -> Generates ONLY infrastructure/v1
+
+if [ -z "$1" ]; then
+  echo "Generating ALL protos..."
+  moon run protos:generate
+else
+  echo "Generating ONLY: $1..."
+  # We pass the --path argument to buf via moon
+  moon run protos:generate -- --path "$1"
+fi

@@ -1,5 +1,3 @@
 go 1.24.0
 
-use (
-// Will add paths here later on
-)
+use ./libs/protos

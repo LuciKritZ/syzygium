@@ -1,0 +1,9 @@
+# This matches our Ping Service structure
+type PingResponse {
+  message: String!
+  serverTime: String!
+}
+
+type Query {
+  ping(message: String!): PingResponse!
+}

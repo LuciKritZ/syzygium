@@ -18,6 +18,8 @@
     }
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^6.1.0",
+    "@graphql-codegen/client-preset": "^5.2.2",
     "typescript": "^5.7.0"
   }
 }

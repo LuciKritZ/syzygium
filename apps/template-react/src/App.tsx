@@ -5,7 +5,7 @@ import { createConnectTransport } from "@connectrpc/connect-web";
 import { PingService } from "@syzygium/protos/gen/ts/infrastructure/v1/ping_pb";
 
 const transport = createConnectTransport({
-  baseUrl: "http://localhost:8090",
+  baseUrl: "http://localhost:8090/api/infrastructure/v1",
 });
 
 const client = createClient(PingService, transport);

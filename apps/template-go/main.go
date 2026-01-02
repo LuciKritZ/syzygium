@@ -16,7 +16,6 @@ import (
 	"github.com/LuciKritZ/syzygium/libs/protos/gen/go/infrastructure/v1/v1connect"
 )
 
-// Server implements the PingService
 type PingServer struct{}
 
 func (s *PingServer) Ping(
@@ -39,6 +38,10 @@ func main() {
 	path, handler := v1connect.NewPingServiceHandler(&PingServer{})
 	mux.Handle(path, handler)
 
+	apiPrefix := "/api/infrastructure/v1"
+
+	mux.Handle(apiPrefix+"/", http.StripPrefix(apiPrefix, handler))
+
 	// Enable CORS (So React can talk to it)
 	// In production, use a real middleware library like 'rs/cors'
 	corsHandler := func(h http.Handler) http.Handler {
@@ -55,7 +58,7 @@ func main() {
 	}
 
 	address := "localhost:8090"
-	fmt.Printf("📡 Server listening on http://%s\n", address)
+	fmt.Printf("Server listening on http://%s%s\n", address, apiPrefix)
 
 	// Use h2c so we can support HTTP/2 without TLS (for local dev)
 	err := http.ListenAndServe(

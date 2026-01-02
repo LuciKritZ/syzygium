@@ -1,0 +1,10 @@
+language: 'go'
+
+tasks:
+  dev:
+    command: 'go run server.go'
+
+  build:
+    command: 'go build -o bin/server server.go'
+    outputs:
+      - 'bin/server'

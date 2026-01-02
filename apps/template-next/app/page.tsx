@@ -5,6 +5,7 @@ import { createClient } from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
 
 import { PingService } from "@syzygium/protos/gen/ts/infrastructure/v1/ping_pb";
+import PingDemo from "./_ping-demo";
 
 const transport = createConnectTransport({
   baseUrl: "http://localhost:8090/api/v1/infrastructure/v1",
@@ -40,6 +41,8 @@ export default function Home() {
         Server Says:{" "}
         <span className="text-green-400 font-mono">{response}</span>
       </p>
+
+      <PingDemo />
     </div>
   );
 }

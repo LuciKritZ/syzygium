@@ -3,6 +3,9 @@ import { createClient } from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
 
 import { PingService } from "@syzygium/protos/gen/ts/infrastructure/v1/ping_pb";
+import { SyzygyProvider } from "@syzygium/api";
+import { SERVICES } from "./config/services";
+import PingDemo from "./PingDemo";
 
 const transport = createConnectTransport({
   baseUrl: "http://localhost:8090/api/infrastructure/v1",
@@ -25,11 +28,16 @@ function App() {
 
   return (
     <div style={{ padding: "2rem" }}>
-      <h1>Syzygium Polyglot Test</h1>
+      <h1>Syzygium Test</h1>
       <button onClick={handlePing}>Send Ping to Go</button>
       <p>
         Server Says: <strong>{response}</strong>
       </p>
+
+      <p>Using API hooks:</p>
+      <SyzygyProvider services={SERVICES}>
+        <PingDemo />
+      </SyzygyProvider>
     </div>
   );
 }

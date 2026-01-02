@@ -12,6 +12,7 @@
   "dependencies": {
     "@connectrpc/connect": "^2.1.1",
     "@connectrpc/connect-web": "^2.1.1",
+    "@syzygium/api": "workspace:^",
     "@syzygium/protos": "workspace:^",
     "@tanstack/react-query": "^5.90.16",
     "react": "^19.2.0",

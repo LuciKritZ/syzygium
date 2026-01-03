@@ -8,8 +8,16 @@ plugins:
   - local: protoc-gen-connect-go
     out: gen/go
     opt: paths=source_relative
-  
+
   # Typescript
   - local: protoc-gen-es
     out: gen/ts
     opt: target=ts
+
+  # Python
+  - remote: buf.build/protocolbuffers/python
+    out: gen/python
+
+  - remote: buf.build/connectrpc/python
+    out: gen/python
+    opt: paths=source_relative

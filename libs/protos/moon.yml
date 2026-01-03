@@ -1,7 +1,7 @@
 language: "javascript"
 
 tasks:
-  install-tools:
+  install-go-tools:
     command: "export GOBIN=$(pwd)/.bin && go install google.golang.org/protobuf/cmd/protoc-gen-go connectrpc.com/connect/cmd/protoc-gen-connect-go"
     inputs:
       - "go.mod"
@@ -13,21 +13,22 @@ tasks:
     options:
       shell: true
 
-  clean:
-    command: 'rm -rf gen'
-    options:
-      shell: true
-
   generate:
-    command: "export PATH=$(pwd)/.bin:$PATH && pnpm run generate"
+    command: "export PATH=$(pwd)/.bin:$(pwd)/.venv/bin:$PATH && ./node_modules/.bin/buf generate"
     deps:
-      - "install-tools" # Ensure tools exist before generating
+      - "install-go-tools"
     inputs:
       - "**/*.proto"
       - "buf.gen.yaml"
       - "buf.yaml"
+      - "!**/.venv/**/*"
     outputs:
       - "gen"
     options:
       cache: true
+      shell: true
+
+  clean:
+    command: 'rm -rf gen .venv .bin'
+    options:
       shell: true
